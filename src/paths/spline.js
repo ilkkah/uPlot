@@ -2,7 +2,7 @@ import { ifNull, nonNullIdx } from '../utils';
 import { orient, clipGaps, moveToH, moveToV, lineToH, lineToV, bezierCurveToH, bezierCurveToV, clipBandLine, BAND_CLIP_FILL, bandFillClipDirs, findGaps } from './utils';
 
 export function splineInterp(interp, opts) {
-	const alignGaps = ifNull(opts?.alignGaps, 0);
+	const alignGaps = ifNull(opts && opts.alignGaps, 0);
 
 	return (u, seriesIdx, idx0, idx1) => {
 		return orient(u, seriesIdx, (series, dataX, dataY, scaleX, scaleY, valToPosX, valToPosY, xOff, yOff, xDim, yDim) => {

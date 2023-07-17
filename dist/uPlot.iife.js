@@ -1965,7 +1965,7 @@ var uPlot = (function () {
 	const drawAccV = _drawAcc(lineToV);
 
 	function linear(opts) {
-		const alignGaps = ifNull(opts?.alignGaps, 0);
+		const alignGaps = ifNull(opts && opts.alignGaps, 0);
 
 		return (u, seriesIdx, idx0, idx1) => {
 			return orient(u, seriesIdx, (series, dataX, dataY, scaleX, scaleY, valToPosX, valToPosY, xOff, yOff, xDim, yDim) => {
@@ -2454,7 +2454,7 @@ var uPlot = (function () {
 	}
 
 	function splineInterp(interp, opts) {
-		const alignGaps = ifNull(opts?.alignGaps, 0);
+		const alignGaps = ifNull(opts && opts.alignGaps, 0);
 
 		return (u, seriesIdx, idx0, idx1) => {
 			return orient(u, seriesIdx, (series, dataX, dataY, scaleX, scaleY, valToPosX, valToPosY, xOff, yOff, xDim, yDim) => {
@@ -5529,7 +5529,7 @@ var uPlot = (function () {
 			mouseListeners.clear();
 			off(dppxchange, win, syncPxRatio);
 			root.remove();
-			legendTable?.remove(); // in case mounted outside of root
+			legendTable && legendTable.remove(); // in case mounted outside of root
 			fire("destroy");
 		}
 

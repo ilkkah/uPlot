@@ -18,7 +18,7 @@ const drawAccH = _drawAcc(lineToH);
 const drawAccV = _drawAcc(lineToV);
 
 export function linear(opts) {
-	const alignGaps = ifNull(opts?.alignGaps, 0);
+	const alignGaps = ifNull(opts && opts.alignGaps, 0);
 
 	return (u, seriesIdx, idx0, idx1) => {
 		return orient(u, seriesIdx, (series, dataX, dataY, scaleX, scaleY, valToPosX, valToPosY, xOff, yOff, xDim, yDim) => {
