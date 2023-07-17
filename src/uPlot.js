@@ -1202,11 +1202,11 @@ export default function uPlot(opts, data, then) {
 	let ctxAlpha;
 
 	function setCtxStyle(stroke, width, dash, cap, fill, join) {
-		stroke ??= transparent;
-		dash   ??= EMPTY_ARR;
-		cap    ??= "butt"; // (‿|‿)
-		fill   ??= transparent;
-		join   ??= "round";
+		stroke = stroke || transparent;
+		dash   = dash || EMPTY_ARR;
+		cap    = cap || "butt"; // (‿|‿)
+		fill   = fill || transparent;
+		join   = join ||"round";
 
 		if (stroke != ctxStroke)
 			ctx.strokeStyle = ctxStroke = stroke;
@@ -2426,7 +2426,7 @@ export default function uPlot(opts, data, then) {
 		let val;
 
 		if (multiValLegend)
-			val = s.values(self, sidx, idx) ?? NULL_LEGEND_VALUES;
+			val = s.values(self, sidx, idx) || NULL_LEGEND_VALUES;
 		else {
 			val = s.value(self, idx == null ? null : src[idx], sidx, idx);
 			val = val == null ? NULL_LEGEND_VALUES : {_: val};
